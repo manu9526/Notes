@@ -1,0 +1,90 @@
+ENUMERATION
+
+    $ hostname
+    $ uname -a 
+    $ cat /proc/version
+    $ cat /etc/issue
+    $ ps -a
+
+            $ ps axjf
+            $ ps aux
+    $ env
+    $ sudo -l
+    $ id
+         $ id <user> eg: $ id kali
+    
+    $ cat /etc/passwd | cut -d ":" -f 1 | grep home 
+    
+    $ netstat -a    -> All Ports and established connections
+    $ netstat -at   -> list TCP or UDP Protocol
+    $ netstat -all  -> " " 
+    $ netstat -l    -> list Ports in listing mode
+    $ netstat -lt   -> only ports that are Listening (TCP)
+    $ netstat -ano  ->        
+
+AUTOMATED ENUMERATION TOOLS
+
+        > Linpeas
+        > LinEnum
+        > LES (Linux Exploit Suggester)
+        > Linux Smart Enumeration 
+        > Linux Priv Checker
+
+KERNEL EXPLOIT 
+
+        $ hostname
+        $ uname -a             
+        $ cat /proc/version
+
+PRIV-ESC : SUDO 
+
+    some application allow to spawn a root shell
+
+        $ sudo -l -> check  its currrent situation related to root privilege
+                     gtfobins.github.io 
+
+PRIV-ESC : SUID 
+    
+    list files that have SUID or SGID bit set       
+        $ find / -type f -perm -04000 -ls 2>/dev/null
+        $ find / -perm +6000 2>/dev/null | grep '/bin/'
+
+PRIV-ESC : CAPABILITIES
+
+    list enabled capabilities
+        $getcap -r / 2>/dev/null 
+    [GTFObins] 
+
+PRIV-ESC : CRON JOBS
+
+    find a CronJob set by root
+        $ cat /etc/crontab
+     
+
+PRIV-ESC : PATH
+    
+    command used to identify writable directories
+        $ find / -writable 2>/dev/null | cut -d "/" -f 2 | sort -u 
+        $ find / -writable 2>/dev/null | grep usr | cut -d "/" -f 2,3 | sort -u 
+        $ find / -writable2>/dev/null | cut -d "/" -f 2,3 | grep -u proc | sort -u 
+
+    adding /tmp to PATH
+        $ export PATH=/tmp:$PATH    
+
+PRIV-ESC : NFS (Network File Sharing)
+    
+    if the "no_root_squash" is enabled on a writable NFS share it can be exploit by creating a executable
+    with the SUID bit set which grand root level privilege.
+
+        $ cat /etc/exports
+       
+    To list mountable shares
+        # showmount -e <target-IP>
+    
+    create a directories for mount the share
+        # mkdir /tmp/shares
+
+    now mount the share to the dir 
+        # mount -o rw [IP]:[/share-name] /tmp/shares   (eg : #mount -o rw 192.168.1.1:/backups /tmp/shares)
+    
+        
