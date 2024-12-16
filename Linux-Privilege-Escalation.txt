@@ -1,6 +1,7 @@
 ENUMERATION
 
     $ hostname
+    $ hostnamectl
     $ uname -a 
     $ cat /proc/version
     $ cat /etc/issue
@@ -33,6 +34,7 @@ AUTOMATED ENUMERATION TOOLS
 KERNEL EXPLOIT 
 
         $ hostname
+        $ hostnamectl 
         $ uname -a             
         $ cat /proc/version
 
