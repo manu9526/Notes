@@ -1,3 +1,3 @@
 # Notes
 ## Linux
-[Linux-Privilege-Escalation Notes](Linux-Privilege-Escalation.txt)
+[Linux-Privilege-Escalation Notes](Linux-Privilege-Escalation.md)
