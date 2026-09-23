@@ -1,8 +1,10 @@
-# Notes
-## Linux
-[Linux-Privilege-Escalation Notes](Linux-Privilege-Escalation.md)
+# 📚 Notes
 
+## 🐧 Linux
 
-## Injection
-[Union SQL_Injection Payloads](Injection/SQLI/union_sqli.md)\
-[Union SQLI_Injection Notes](Injection/SQLI/union_sqli_Notes.md)
+* [🔓 Linux Privilege Escalation Notes](Linux-Privilege-Escalation.md)
+
+## 💉 Injection
+
+* [⚔️ Union SQL Injection Payloads](Injection/SQLI/union_sqli.md)
+* [📖 Union SQL Injection Notes](Injection/SQLI/union_sqli_Notes.md)
